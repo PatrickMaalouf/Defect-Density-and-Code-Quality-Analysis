@@ -1,0 +1,1038 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.24.1010.1014                               -->
+<workbook original-version='18.1' source-build='2024.3.0 (20243.24.1010.1014)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='bugs_data.csv+ (Multiple Connections)' inline='true' name='federated.0cotfqf1rqltty1a8sfx20zl285p' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='bugs_data' name='textscan.0m3a3fc0oqn9vq1gza0kh0ouwrx0'>
+            <connection class='textscan' directory='C:/Users/Admin/Documents/My_Portfolio/Data_Analytics/Defect_Density_and_Quality_Trends/data/processed' filename='bugs_data.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='loc_data' name='textscan.0he7ekh1br09ec11c3xzj0jcr8tl'>
+            <connection class='textscan' directory='C:/Users/Admin/Documents/My_Portfolio/Data_Analytics/Defect_Density_and_Quality_Trends/data/processed' filename='loc_data.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.0m3a3fc0oqn9vq1gza0kh0ouwrx0' name='bugs_data.csv' table='[bugs_data#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='bug_id' ordinal='0' />
+              <column datatype='date' name='date_found' ordinal='1' />
+              <column datatype='string' name='module' ordinal='2' />
+              <column datatype='string' name='team' ordinal='3' />
+              <column datatype='string' name='severity' ordinal='4' />
+              <column datatype='boolean' name='is_fixed' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0he7ekh1br09ec11c3xzj0jcr8tl' name='loc_data.csv' table='[loc_data#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='date' name='date' ordinal='0' />
+              <column datatype='string' name='module' ordinal='1' />
+              <column datatype='integer' name='lines_of_code' ordinal='2' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[bug_id]' value='[bugs_data.csv].[bug_id]' />
+          <map key='[date]' value='[loc_data.csv].[date]' />
+          <map key='[date_found]' value='[bugs_data.csv].[date_found]' />
+          <map key='[is_fixed]' value='[bugs_data.csv].[is_fixed]' />
+          <map key='[lines_of_code]' value='[loc_data.csv].[lines_of_code]' />
+          <map key='[module (loc_data.csv)]' value='[loc_data.csv].[module]' />
+          <map key='[module]' value='[bugs_data.csv].[module]' />
+          <map key='[severity]' value='[bugs_data.csv].[severity]' />
+          <map key='[team]' value='[bugs_data.csv].[team]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[loc_data.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bug_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[bug_id]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>bug_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_found</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_found]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>date_found</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>module</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[module]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>module</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>team</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>severity</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[severity]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>severity</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_fixed</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[is_fixed]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>is_fixed</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[loc_data.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>module</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[module (loc_data.csv)]</local-name>
+            <parent-name>[loc_data.csv]</parent-name>
+            <remote-alias>module</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lines_of_code</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[lines_of_code]</local-name>
+            <parent-name>[loc_data.csv]</parent-name>
+            <remote-alias>lines_of_code</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='COUNT(Bug Id)' datatype='string' name='[Calculation_573083095662092290]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[bug_id]' />
+      </column>
+      <column caption='Defect Density' datatype='real' name='[Calculation_573083095665143813]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='(COUNT([__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F])/COUNT([lines_of_code]))*1000' />
+      </column>
+      <column caption='bugs_data.csv' datatype='table' name='[__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' role='measure' type='quantitative' />
+      <column caption='loc_data.csv' datatype='table' name='[__tableau_internal_object_id__].[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]' role='measure' type='quantitative' />
+      <column caption='Bug Id' datatype='string' name='[bug_id]' role='dimension' type='nominal' />
+      <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Date Found' datatype='date' name='[date_found]' role='dimension' type='ordinal' />
+      <column caption='Is Fixed' datatype='boolean' name='[is_fixed]' role='dimension' type='nominal' />
+      <column caption='Lines Of Code' datatype='integer' name='[lines_of_code]' role='dimension' type='ordinal' />
+      <column caption='Module (Loc Data.Csv)' datatype='string' name='[module (loc_data.csv)]' role='dimension' type='nominal' />
+      <column caption='Module' datatype='string' name='[module]' role='dimension' type='nominal' />
+      <column caption='Severity' datatype='string' name='[severity]' role='dimension' type='nominal' />
+      <column caption='Team' datatype='string' name='[team]' role='dimension' type='nominal' />
+      <column-instance column='[date_found]' derivation='Month' name='[mn:date_found:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[severity]' derivation='None' name='[none:severity:nk]' pivot='key' type='nominal' />
+      <group caption='Action (MONTH(Date Found))' hidden='true' name='[Action (MONTH(Date Found))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[mn:date_found:ok]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Severity)' hidden='true' name='[Action (Severity)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[severity]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Team)' hidden='true' name='[Action (Team)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[team]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/Admin/AppData/Local/Temp/TableauTemp/#TableauTemp_0jzkz9t056siz4119z7as1fbl6iu.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='08/16/2025 12:35:01 PM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F' table='[Extract].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' type='table' />
+            <relation name='loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3' table='[Extract].[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]' type='table' />
+          </relation>
+          <cols>
+            <map key='[bug_id]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[bug_id]' />
+            <map key='[date]' value='[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3].[date]' />
+            <map key='[date_found]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[date_found]' />
+            <map key='[is_fixed]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[is_fixed]' />
+            <map key='[lines_of_code]' value='[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3].[lines_of_code]' />
+            <map key='[module (loc_data.csv)]' value='[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3].[module]' />
+            <map key='[module]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[module]' />
+            <map key='[severity]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[severity]' />
+            <map key='[team]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[team]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>bug_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[bug_id]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>bug_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>188</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date_found</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date_found]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>date_found</remote-alias>
+              <ordinal>1</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>180</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>module</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[module]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>module</remote-alias>
+              <ordinal>2</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>team</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[team]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>team</remote-alias>
+              <ordinal>3</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>severity</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[severity]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>severity</remote-alias>
+              <ordinal>4</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>is_fixed</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[is_fixed]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>is_fixed</remote-alias>
+              <ordinal>5</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date]</local-name>
+              <parent-name>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</parent-name>
+              <remote-alias>date</remote-alias>
+              <ordinal>6</ordinal>
+              <family>loc_data.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>module</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[module (loc_data.csv)]</local-name>
+              <parent-name>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</parent-name>
+              <remote-alias>module</remote-alias>
+              <ordinal>7</ordinal>
+              <family>loc_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>lines_of_code</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[lines_of_code]</local-name>
+              <parent-name>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</parent-name>
+              <remote-alias>lines_of_code</remote-alias>
+              <ordinal>8</ordinal>
+              <family>loc_data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>30</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:severity:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Critical&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Medium&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Low&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;High&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Lebanon&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='date' />
+        <field-sort-custom-order field='module (loc_data.csv)' />
+        <field-sort-custom-order field='lines_of_code' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='bugs_data.csv' id='bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F'>
+            <properties context=''>
+              <relation connection='textscan.0m3a3fc0oqn9vq1gza0kh0ouwrx0' name='bugs_data.csv' table='[bugs_data#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='bug_id' ordinal='0' />
+                  <column datatype='date' name='date_found' ordinal='1' />
+                  <column datatype='string' name='module' ordinal='2' />
+                  <column datatype='string' name='team' ordinal='3' />
+                  <column datatype='string' name='severity' ordinal='4' />
+                  <column datatype='boolean' name='is_fixed' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F' table='[Extract].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' type='table' />
+            </properties>
+          </object>
+          <object caption='loc_data.csv' id='loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3'>
+            <properties context=''>
+              <relation connection='textscan.0he7ekh1br09ec11c3xzj0jcr8tl' name='loc_data.csv' table='[loc_data#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='date' name='date' ordinal='0' />
+                  <column datatype='string' name='module' ordinal='1' />
+                  <column datatype='integer' name='lines_of_code' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3' table='[Extract].[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[module]' />
+              <expression op='[module (loc_data.csv)]' />
+            </expression>
+            <first-end-point object-id='bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F' />
+            <second-end-point object-id='loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1_17425C79D59A4726B0004CAE69DBB767]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Defect Density and Code Quality Analysis' type='sheet' worksheet='Severity Breakdown' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Defect Density and Code Quality Analysis' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action2_33655321D296434A839B0A83D7800858]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Defect Density and Code Quality Analysis' type='sheet' worksheet='Defect Density Trend Over Time' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Defect Density and Code Quality Analysis' />
+      </command>
+    </action>
+    <action caption='Filter 3 (generated)' name='[Action3_52F282EA4A7F46FD86956B94343D6B52]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Defect Density and Code Quality Analysis' type='sheet' worksheet='Defect Density by Team' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Defect Density and Code Quality Analysis' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet lock-quick-filters='true' name='Defect Density Trend Over Time'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Defect Density Trend Over Time</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bugs_data.csv+ (Multiple Connections)' name='federated.0cotfqf1rqltty1a8sfx20zl285p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0cotfqf1rqltty1a8sfx20zl285p'>
+            <column caption='Defect Density' datatype='real' name='[Calculation_573083095665143813]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='(COUNT([__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F])/COUNT([lines_of_code]))*1000' />
+            </column>
+            <column caption='bugs_data.csv' datatype='table' name='[__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' role='measure' type='quantitative' />
+            <column caption='Date Found' datatype='date' name='[date_found]' role='dimension' type='ordinal' />
+            <column caption='Lines Of Code' datatype='integer' name='[lines_of_code]' role='dimension' type='ordinal' />
+            <column-instance column='[date_found]' derivation='Month' name='[mn:date_found:ok]' pivot='key' type='ordinal' />
+            <column caption='Severity' datatype='string' name='[severity]' role='dimension' type='nominal' />
+            <column caption='Team' datatype='string' name='[team]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_573083095665143813]' derivation='User' name='[usr:Calculation_573083095665143813:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]'>
+            <groupfilter function='level-members' level='[severity]' user:ui-action-filter='[Action1_17425C79D59A4726B0004CAE69DBB767]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]'>
+            <groupfilter function='level-members' level='[team]' user:ui-action-filter='[Action3_52F282EA4A7F46FD86956B94343D6B52]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]</column>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0cotfqf1rqltty1a8sfx20zl285p].[usr:Calculation_573083095665143813:qk]</rows>
+        <cols>[federated.0cotfqf1rqltty1a8sfx20zl285p].[mn:date_found:ok]</cols>
+      </table>
+      <simple-id uuid='{A62FF9B4-757C-4314-A63F-3F7087706135}' />
+    </worksheet>
+    <worksheet name='Defect Density by Module'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bugs_data.csv+ (Multiple Connections)' name='federated.0cotfqf1rqltty1a8sfx20zl285p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0cotfqf1rqltty1a8sfx20zl285p'>
+            <column caption='Defect Density' datatype='real' name='[Calculation_573083095665143813]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='(COUNT([__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F])/COUNT([lines_of_code]))*1000' />
+            </column>
+            <column caption='bugs_data.csv' datatype='table' name='[__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' role='measure' type='quantitative' />
+            <column caption='Date Found' datatype='date' name='[date_found]' role='dimension' type='ordinal' />
+            <column caption='Lines Of Code' datatype='integer' name='[lines_of_code]' role='dimension' type='ordinal' />
+            <column-instance column='[date_found]' derivation='Month' name='[mn:date_found:ok]' pivot='key' type='ordinal' />
+            <column caption='Module' datatype='string' name='[module]' role='dimension' type='nominal' />
+            <column-instance column='[module]' derivation='None' name='[none:module:nk]' pivot='key' type='nominal' />
+            <column caption='Severity' datatype='string' name='[severity]' role='dimension' type='nominal' />
+            <column caption='Team' datatype='string' name='[team]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_573083095665143813]' derivation='User' name='[usr:Calculation_573083095665143813:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]'>
+            <groupfilter function='level-members' level='[mn:date_found:ok]' user:ui-action-filter='[Action2_33655321D296434A839B0A83D7800858]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]'>
+            <groupfilter function='level-members' level='[severity]' user:ui-action-filter='[Action1_17425C79D59A4726B0004CAE69DBB767]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]'>
+            <groupfilter function='level-members' level='[team]' user:ui-action-filter='[Action3_52F282EA4A7F46FD86956B94343D6B52]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:module:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0cotfqf1rqltty1a8sfx20zl285p].[usr:Calculation_573083095665143813:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]</column>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]</column>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:module:nk]</rows>
+        <cols>[federated.0cotfqf1rqltty1a8sfx20zl285p].[usr:Calculation_573083095665143813:qk]</cols>
+      </table>
+      <simple-id uuid='{757A2050-8C3F-4C74-AD87-ABFA3B196323}' />
+    </worksheet>
+    <worksheet name='Defect Density by Team'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bugs_data.csv+ (Multiple Connections)' name='federated.0cotfqf1rqltty1a8sfx20zl285p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0cotfqf1rqltty1a8sfx20zl285p'>
+            <column caption='Defect Density' datatype='real' name='[Calculation_573083095665143813]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='(COUNT([__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F])/COUNT([lines_of_code]))*1000' />
+            </column>
+            <column caption='bugs_data.csv' datatype='table' name='[__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' role='measure' type='quantitative' />
+            <column caption='Date Found' datatype='date' name='[date_found]' role='dimension' type='ordinal' />
+            <column caption='Lines Of Code' datatype='integer' name='[lines_of_code]' role='dimension' type='ordinal' />
+            <column-instance column='[date_found]' derivation='Month' name='[mn:date_found:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[team]' derivation='None' name='[none:team:nk]' pivot='key' type='nominal' />
+            <column caption='Severity' datatype='string' name='[severity]' role='dimension' type='nominal' />
+            <column caption='Team' datatype='string' name='[team]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_573083095665143813]' derivation='User' name='[usr:Calculation_573083095665143813:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]'>
+            <groupfilter function='level-members' level='[mn:date_found:ok]' user:ui-action-filter='[Action2_33655321D296434A839B0A83D7800858]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]'>
+            <groupfilter function='level-members' level='[severity]' user:ui-action-filter='[Action1_17425C79D59A4726B0004CAE69DBB767]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:team:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0cotfqf1rqltty1a8sfx20zl285p].[usr:Calculation_573083095665143813:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]</column>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:team:nk]</rows>
+        <cols>[federated.0cotfqf1rqltty1a8sfx20zl285p].[usr:Calculation_573083095665143813:qk]</cols>
+      </table>
+      <simple-id uuid='{AA54AE56-5985-420E-B12A-15D1E67F7553}' />
+    </worksheet>
+    <worksheet name='Severity Breakdown'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bugs_data.csv+ (Multiple Connections)' name='federated.0cotfqf1rqltty1a8sfx20zl285p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0cotfqf1rqltty1a8sfx20zl285p'>
+            <column-instance column='[severity]' derivation='Count' name='[cnt:severity:qk]' pivot='key' type='quantitative' />
+            <column caption='Date Found' datatype='date' name='[date_found]' role='dimension' type='ordinal' />
+            <column-instance column='[date_found]' derivation='Month' name='[mn:date_found:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[severity]' derivation='None' name='[none:severity:nk]' pivot='key' type='nominal' />
+            <column caption='Severity' datatype='string' name='[severity]' role='dimension' type='nominal' />
+            <column caption='Team' datatype='string' name='[team]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]'>
+            <groupfilter function='level-members' level='[mn:date_found:ok]' user:ui-action-filter='[Action2_33655321D296434A839B0A83D7800858]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]'>
+            <groupfilter function='level-members' level='[team]' user:ui-action-filter='[Action3_52F282EA4A7F46FD86956B94343D6B52]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]</column>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='height' value='200' />
+            <format attr='width' value='260' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:severity:nk]' />
+              <wedge-size column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[cnt:severity:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.99950277805328369' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{5ABA1BD5-4E73-4EDE-B252-8BC77A8075AA}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Defect Density and Code Quality Analysis'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#000000' fontname='Benton Sans Book' underline='true'>Defect Density and Code Quality Analysis</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size maxheight='827' maxwidth='1169' minheight='827' minwidth='1169' preset-index='16' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98066' id='16' param='vert' type-v2='layout-flow' w='98632' x='684' y='967'>
+            <zone h='4474' id='17' type-v2='title' w='98632' x='684' y='967'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='93592' id='13' param='horz' type-v2='layout-flow' w='98632' x='684' y='5441'>
+              <zone h='93592' id='8' type-v2='layout-basic' w='98632' x='684' y='5441'>
+                <zone h='46796' id='3' name='Defect Density Trend Over Time' w='98632' x='684' y='5441'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='46796' id='5' name='Defect Density by Module' w='35330' x='63986' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='46796' id='6' name='Defect Density by Team' w='38667' x='25319' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='30834' id='11' name='Severity Breakdown' w='24635' x='684' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='15962' id='19' type-v2='text' w='24635' x='684' y='83071'>
+                  <formatted-text>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'>This pie chart illustrates the distribution of bugs by severity. A high proportion of </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Critical</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> or </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>High</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> severity bugs is far more concerning than a similar number of low-priority bugs. This breakdown helps us understand the true risk profile of our codebase and prioritize our remediation efforts accordingly.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='18380' id='18' type-v2='text' w='72797' x='26347' y='74486'>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>These bar charts provide a detailed breakdown of defect density across different modules and development teams. The </run>
+            <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Defect Density by Module</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book'> chart helps us pinpoint which parts of the codebase are most fragile and may be in urgent need of refactoring or architectural review. The </run>
+            <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Defect Density by Team</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book'> chart helps us identify teams that might be facing unique challenges, perhaps due to working on a new technology or a particularly complex feature. This data can inform targeted training programs or resource allocation.</run>
+          </formatted-text>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <layout-options>
+            <title>
+              <formatted-text>
+                <run bold='true' fontalignment='1' fontcolor='#000000' fontname='Benton Sans Book' underline='true'>Defect Density and Code Quality Analysis</run>
+              </formatted-text>
+            </title>
+          </layout-options>
+          <size maxheight='1350' minheight='1350' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='21' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98066' id='20' param='vert' type-v2='layout-flow' w='98632' x='684' y='967'>
+                <zone h='4474' id='17' type-v2='title' w='98632' x='684' y='967'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46796' id='3' is-fixed='true' name='Defect Density Trend Over Time' w='98632' x='684' y='5441'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='247' h='30834' id='11' is-fixed='true' name='Severity Breakdown' w='24635' x='684' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46796' id='6' is-fixed='true' name='Defect Density by Team' w='38667' x='25319' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46796' id='5' is-fixed='true' name='Defect Density by Module' w='35330' x='63986' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='18380' id='18' type-v2='text' w='72797' x='26347' y='74486'>
+                  <formatted-text>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'>These bar charts provide a detailed breakdown of defect density across different modules and development teams. The </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Defect Density by Module</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> chart helps us pinpoint which parts of the codebase are most fragile and may be in urgent need of refactoring or architectural review. The </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Defect Density by Team</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> chart helps us identify teams that might be facing unique challenges, perhaps due to working on a new technology or a particularly complex feature. This data can inform targeted training programs or resource allocation.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='15962' id='19' type-v2='text' w='24635' x='684' y='83071'>
+                  <formatted-text>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'>This pie chart illustrates the distribution of bugs by severity. A high proportion of </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Critical</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> or </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>High</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> severity bugs is far more concerning than a similar number of low-priority bugs. This breakdown helps us understand the true risk profile of our codebase and prioritize our remediation efforts accordingly.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{2A4128B2-6785-4CC7-AFFD-A53DF075E355}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Defect Density Trend Over Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B6B4C51C-4F17-44C2-B503-8877AA94B38B}' />
+    </window>
+    <window class='worksheet' name='Defect Density by Module'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B5321936-7D6F-4757-8094-369035FF4104}' />
+    </window>
+    <window class='worksheet' name='Defect Density by Team'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1406AE42-15A6-4BE0-9237-0A32DC2B4FB1}' />
+    </window>
+    <window class='worksheet' name='Severity Breakdown'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:severity:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{72CB0893-EE86-4E40-BF48-E6330B4084DD}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Defect Density and Code Quality Analysis'>
+      <viewpoints>
+        <viewpoint name='Defect Density Trend Over Time'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Defect Density by Module' />
+        <viewpoint name='Defect Density by Team' />
+        <viewpoint name='Severity Breakdown' />
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{47DF2BCD-4C0E-4E59-BAC4-F0DF52D3DF92}' />
+    </window>
+  </windows>
+</workbook>

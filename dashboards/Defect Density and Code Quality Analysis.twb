@@ -1,0 +1,1341 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.24.1010.1014                               -->
+<workbook original-version='18.1' source-build='2024.3.0 (20243.24.1010.1014)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='bugs_data.csv+ (Multiple Connections)' inline='true' name='federated.0cotfqf1rqltty1a8sfx20zl285p' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='bugs_data' name='textscan.0m3a3fc0oqn9vq1gza0kh0ouwrx0'>
+            <connection class='textscan' directory='C:/Users/Admin/Documents/My_Portfolio/Data_Analytics/Defect_Density_and_Quality_Trends/data/processed' filename='bugs_data.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='loc_data' name='textscan.0he7ekh1br09ec11c3xzj0jcr8tl'>
+            <connection class='textscan' directory='C:/Users/Admin/Documents/My_Portfolio/Data_Analytics/Defect_Density_and_Quality_Trends/data/processed' filename='loc_data.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.0m3a3fc0oqn9vq1gza0kh0ouwrx0' name='bugs_data.csv' table='[bugs_data#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='bug_id' ordinal='0' />
+              <column datatype='date' name='date_found' ordinal='1' />
+              <column datatype='string' name='module' ordinal='2' />
+              <column datatype='string' name='team' ordinal='3' />
+              <column datatype='string' name='severity' ordinal='4' />
+              <column datatype='boolean' name='is_fixed' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0he7ekh1br09ec11c3xzj0jcr8tl' name='loc_data.csv' table='[loc_data#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='date' name='date' ordinal='0' />
+              <column datatype='string' name='module' ordinal='1' />
+              <column datatype='integer' name='lines_of_code' ordinal='2' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[bug_id]' value='[bugs_data.csv].[bug_id]' />
+          <map key='[date]' value='[loc_data.csv].[date]' />
+          <map key='[date_found]' value='[bugs_data.csv].[date_found]' />
+          <map key='[is_fixed]' value='[bugs_data.csv].[is_fixed]' />
+          <map key='[lines_of_code]' value='[loc_data.csv].[lines_of_code]' />
+          <map key='[module (loc_data.csv)]' value='[loc_data.csv].[module]' />
+          <map key='[module]' value='[bugs_data.csv].[module]' />
+          <map key='[severity]' value='[bugs_data.csv].[severity]' />
+          <map key='[team]' value='[bugs_data.csv].[team]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[loc_data.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bug_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[bug_id]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>bug_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_found</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_found]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>date_found</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>module</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[module]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>module</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>team</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>severity</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[severity]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>severity</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_fixed</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[is_fixed]</local-name>
+            <parent-name>[bugs_data.csv]</parent-name>
+            <remote-alias>is_fixed</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[loc_data.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>module</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[module (loc_data.csv)]</local-name>
+            <parent-name>[loc_data.csv]</parent-name>
+            <remote-alias>module</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lines_of_code</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[lines_of_code]</local-name>
+            <parent-name>[loc_data.csv]</parent-name>
+            <remote-alias>lines_of_code</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='COUNT(Bug Id)' datatype='string' name='[Calculation_573083095662092290]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[bug_id]' />
+      </column>
+      <column caption='Defect Density' datatype='real' name='[Calculation_573083095665143813]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='(COUNT([__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F])/COUNT([lines_of_code]))*1000' />
+      </column>
+      <column caption='bugs_data.csv' datatype='table' name='[__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' role='measure' type='quantitative' />
+      <column caption='loc_data.csv' datatype='table' name='[__tableau_internal_object_id__].[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]' role='measure' type='quantitative' />
+      <column caption='Bug Id' datatype='string' name='[bug_id]' role='dimension' type='nominal' />
+      <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Date Found' datatype='date' name='[date_found]' role='dimension' type='ordinal' />
+      <column caption='Is Fixed' datatype='boolean' name='[is_fixed]' role='dimension' type='nominal' />
+      <column caption='Lines Of Code' datatype='integer' name='[lines_of_code]' role='dimension' type='ordinal' />
+      <column caption='Module (Loc Data.Csv)' datatype='string' name='[module (loc_data.csv)]' role='dimension' type='nominal' />
+      <column caption='Module' datatype='string' name='[module]' role='dimension' type='nominal' />
+      <column caption='Severity' datatype='string' name='[severity]' role='dimension' type='nominal' />
+      <column caption='Team' datatype='string' name='[team]' role='dimension' type='nominal' />
+      <column-instance column='[date_found]' derivation='Month' name='[mn:date_found:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[severity]' derivation='None' name='[none:severity:nk]' pivot='key' type='nominal' />
+      <group caption='Action (MONTH(Date Found))' hidden='true' name='[Action (MONTH(Date Found))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[mn:date_found:ok]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Severity)' hidden='true' name='[Action (Severity)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[severity]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Team)' hidden='true' name='[Action (Team)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[team]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/Admin/AppData/Local/Temp/TableauTemp/#TableauTemp_0jzkz9t056siz4119z7as1fbl6iu.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='08/16/2025 12:35:01 PM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F' table='[Extract].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' type='table' />
+            <relation name='loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3' table='[Extract].[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]' type='table' />
+          </relation>
+          <cols>
+            <map key='[bug_id]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[bug_id]' />
+            <map key='[date]' value='[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3].[date]' />
+            <map key='[date_found]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[date_found]' />
+            <map key='[is_fixed]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[is_fixed]' />
+            <map key='[lines_of_code]' value='[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3].[lines_of_code]' />
+            <map key='[module (loc_data.csv)]' value='[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3].[module]' />
+            <map key='[module]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[module]' />
+            <map key='[severity]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[severity]' />
+            <map key='[team]' value='[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F].[team]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>bug_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[bug_id]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>bug_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>188</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date_found</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date_found]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>date_found</remote-alias>
+              <ordinal>1</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>180</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>module</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[module]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>module</remote-alias>
+              <ordinal>2</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>team</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[team]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>team</remote-alias>
+              <ordinal>3</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>severity</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[severity]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>severity</remote-alias>
+              <ordinal>4</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>is_fixed</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[is_fixed]</local-name>
+              <parent-name>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</parent-name>
+              <remote-alias>is_fixed</remote-alias>
+              <ordinal>5</ordinal>
+              <family>bugs_data.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date]</local-name>
+              <parent-name>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</parent-name>
+              <remote-alias>date</remote-alias>
+              <ordinal>6</ordinal>
+              <family>loc_data.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>module</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[module (loc_data.csv)]</local-name>
+              <parent-name>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</parent-name>
+              <remote-alias>module</remote-alias>
+              <ordinal>7</ordinal>
+              <family>loc_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>lines_of_code</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[lines_of_code]</local-name>
+              <parent-name>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</parent-name>
+              <remote-alias>lines_of_code</remote-alias>
+              <ordinal>8</ordinal>
+              <family>loc_data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>30</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:severity:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Critical&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Medium&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Low&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;High&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Lebanon&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='date' />
+        <field-sort-custom-order field='module (loc_data.csv)' />
+        <field-sort-custom-order field='lines_of_code' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='bugs_data.csv' id='bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F'>
+            <properties context=''>
+              <relation connection='textscan.0m3a3fc0oqn9vq1gza0kh0ouwrx0' name='bugs_data.csv' table='[bugs_data#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='bug_id' ordinal='0' />
+                  <column datatype='date' name='date_found' ordinal='1' />
+                  <column datatype='string' name='module' ordinal='2' />
+                  <column datatype='string' name='team' ordinal='3' />
+                  <column datatype='string' name='severity' ordinal='4' />
+                  <column datatype='boolean' name='is_fixed' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F' table='[Extract].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' type='table' />
+            </properties>
+          </object>
+          <object caption='loc_data.csv' id='loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3'>
+            <properties context=''>
+              <relation connection='textscan.0he7ekh1br09ec11c3xzj0jcr8tl' name='loc_data.csv' table='[loc_data#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='date' name='date' ordinal='0' />
+                  <column datatype='string' name='module' ordinal='1' />
+                  <column datatype='integer' name='lines_of_code' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3' table='[Extract].[loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[module]' />
+              <expression op='[module (loc_data.csv)]' />
+            </expression>
+            <first-end-point object-id='bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F' />
+            <second-end-point object-id='loc_data.csv_A1EF8247DD1B40F9A96D54E51060B6F3' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1_17425C79D59A4726B0004CAE69DBB767]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Defect Density and Code Quality Analysis' type='sheet' worksheet='Severity Breakdown' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Defect Density and Code Quality Analysis' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action2_33655321D296434A839B0A83D7800858]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Defect Density and Code Quality Analysis' type='sheet' worksheet='Defect Density Trend Over Time' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Defect Density and Code Quality Analysis' />
+      </command>
+    </action>
+    <action caption='Filter 3 (generated)' name='[Action3_52F282EA4A7F46FD86956B94343D6B52]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Defect Density and Code Quality Analysis' type='sheet' worksheet='Defect Density by Team' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Defect Density and Code Quality Analysis' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet lock-quick-filters='true' name='Defect Density Trend Over Time'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Defect Density Trend Over Time</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bugs_data.csv+ (Multiple Connections)' name='federated.0cotfqf1rqltty1a8sfx20zl285p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0cotfqf1rqltty1a8sfx20zl285p'>
+            <column caption='Defect Density' datatype='real' name='[Calculation_573083095665143813]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='(COUNT([__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F])/COUNT([lines_of_code]))*1000' />
+            </column>
+            <column caption='bugs_data.csv' datatype='table' name='[__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' role='measure' type='quantitative' />
+            <column caption='Date Found' datatype='date' name='[date_found]' role='dimension' type='ordinal' />
+            <column caption='Lines Of Code' datatype='integer' name='[lines_of_code]' role='dimension' type='ordinal' />
+            <column-instance column='[date_found]' derivation='Month' name='[mn:date_found:ok]' pivot='key' type='ordinal' />
+            <column caption='Severity' datatype='string' name='[severity]' role='dimension' type='nominal' />
+            <column caption='Team' datatype='string' name='[team]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_573083095665143813]' derivation='User' name='[usr:Calculation_573083095665143813:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]'>
+            <groupfilter function='level-members' level='[severity]' user:ui-action-filter='[Action1_17425C79D59A4726B0004CAE69DBB767]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]'>
+            <groupfilter function='level-members' level='[team]' user:ui-action-filter='[Action3_52F282EA4A7F46FD86956B94343D6B52]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]</column>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0cotfqf1rqltty1a8sfx20zl285p].[usr:Calculation_573083095665143813:qk]</rows>
+        <cols>[federated.0cotfqf1rqltty1a8sfx20zl285p].[mn:date_found:ok]</cols>
+      </table>
+      <simple-id uuid='{A62FF9B4-757C-4314-A63F-3F7087706135}' />
+    </worksheet>
+    <worksheet name='Defect Density by Module'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bugs_data.csv+ (Multiple Connections)' name='federated.0cotfqf1rqltty1a8sfx20zl285p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0cotfqf1rqltty1a8sfx20zl285p'>
+            <column caption='Defect Density' datatype='real' name='[Calculation_573083095665143813]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='(COUNT([__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F])/COUNT([lines_of_code]))*1000' />
+            </column>
+            <column caption='bugs_data.csv' datatype='table' name='[__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' role='measure' type='quantitative' />
+            <column caption='Date Found' datatype='date' name='[date_found]' role='dimension' type='ordinal' />
+            <column caption='Lines Of Code' datatype='integer' name='[lines_of_code]' role='dimension' type='ordinal' />
+            <column-instance column='[date_found]' derivation='Month' name='[mn:date_found:ok]' pivot='key' type='ordinal' />
+            <column caption='Module' datatype='string' name='[module]' role='dimension' type='nominal' />
+            <column-instance column='[module]' derivation='None' name='[none:module:nk]' pivot='key' type='nominal' />
+            <column caption='Severity' datatype='string' name='[severity]' role='dimension' type='nominal' />
+            <column caption='Team' datatype='string' name='[team]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_573083095665143813]' derivation='User' name='[usr:Calculation_573083095665143813:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]'>
+            <groupfilter function='level-members' level='[mn:date_found:ok]' user:ui-action-filter='[Action2_33655321D296434A839B0A83D7800858]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]'>
+            <groupfilter function='level-members' level='[severity]' user:ui-action-filter='[Action1_17425C79D59A4726B0004CAE69DBB767]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]'>
+            <groupfilter function='level-members' level='[team]' user:ui-action-filter='[Action3_52F282EA4A7F46FD86956B94343D6B52]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:module:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0cotfqf1rqltty1a8sfx20zl285p].[usr:Calculation_573083095665143813:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]</column>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]</column>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:module:nk]</rows>
+        <cols>[federated.0cotfqf1rqltty1a8sfx20zl285p].[usr:Calculation_573083095665143813:qk]</cols>
+      </table>
+      <simple-id uuid='{757A2050-8C3F-4C74-AD87-ABFA3B196323}' />
+    </worksheet>
+    <worksheet name='Defect Density by Team'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bugs_data.csv+ (Multiple Connections)' name='federated.0cotfqf1rqltty1a8sfx20zl285p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0cotfqf1rqltty1a8sfx20zl285p'>
+            <column caption='Defect Density' datatype='real' name='[Calculation_573083095665143813]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='(COUNT([__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F])/COUNT([lines_of_code]))*1000' />
+            </column>
+            <column caption='bugs_data.csv' datatype='table' name='[__tableau_internal_object_id__].[bugs_data.csv_870865A329ED4AE09D4AD8EC35E0AB9F]' role='measure' type='quantitative' />
+            <column caption='Date Found' datatype='date' name='[date_found]' role='dimension' type='ordinal' />
+            <column caption='Lines Of Code' datatype='integer' name='[lines_of_code]' role='dimension' type='ordinal' />
+            <column-instance column='[date_found]' derivation='Month' name='[mn:date_found:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[team]' derivation='None' name='[none:team:nk]' pivot='key' type='nominal' />
+            <column caption='Severity' datatype='string' name='[severity]' role='dimension' type='nominal' />
+            <column caption='Team' datatype='string' name='[team]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_573083095665143813]' derivation='User' name='[usr:Calculation_573083095665143813:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]'>
+            <groupfilter function='level-members' level='[mn:date_found:ok]' user:ui-action-filter='[Action2_33655321D296434A839B0A83D7800858]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]'>
+            <groupfilter function='level-members' level='[severity]' user:ui-action-filter='[Action1_17425C79D59A4726B0004CAE69DBB767]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:team:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0cotfqf1rqltty1a8sfx20zl285p].[usr:Calculation_573083095665143813:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Severity)]</column>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:team:nk]</rows>
+        <cols>[federated.0cotfqf1rqltty1a8sfx20zl285p].[usr:Calculation_573083095665143813:qk]</cols>
+      </table>
+      <simple-id uuid='{AA54AE56-5985-420E-B12A-15D1E67F7553}' />
+    </worksheet>
+    <worksheet name='Severity Breakdown'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bugs_data.csv+ (Multiple Connections)' name='federated.0cotfqf1rqltty1a8sfx20zl285p' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0cotfqf1rqltty1a8sfx20zl285p'>
+            <column-instance column='[severity]' derivation='Count' name='[cnt:severity:qk]' pivot='key' type='quantitative' />
+            <column caption='Date Found' datatype='date' name='[date_found]' role='dimension' type='ordinal' />
+            <column-instance column='[date_found]' derivation='Month' name='[mn:date_found:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[severity]' derivation='None' name='[none:severity:nk]' pivot='key' type='nominal' />
+            <column caption='Severity' datatype='string' name='[severity]' role='dimension' type='nominal' />
+            <column caption='Team' datatype='string' name='[team]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]'>
+            <groupfilter function='level-members' level='[mn:date_found:ok]' user:ui-action-filter='[Action2_33655321D296434A839B0A83D7800858]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]'>
+            <groupfilter function='level-members' level='[team]' user:ui-action-filter='[Action3_52F282EA4A7F46FD86956B94343D6B52]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (MONTH(Date Found))]</column>
+            <column>[federated.0cotfqf1rqltty1a8sfx20zl285p].[Action (Team)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='height' value='200' />
+            <format attr='width' value='260' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:severity:nk]' />
+              <wedge-size column='[federated.0cotfqf1rqltty1a8sfx20zl285p].[cnt:severity:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.99950277805328369' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{5ABA1BD5-4E73-4EDE-B252-8BC77A8075AA}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Defect Density and Code Quality Analysis'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#000000' fontname='Benton Sans Book' underline='true'>Defect Density and Code Quality Analysis</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size maxheight='827' maxwidth='1169' minheight='827' minwidth='1169' preset-index='16' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98066' id='16' param='vert' type-v2='layout-flow' w='98632' x='684' y='967'>
+            <zone h='4474' id='17' type-v2='title' w='98632' x='684' y='967'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='93592' id='13' param='horz' type-v2='layout-flow' w='98632' x='684' y='5441'>
+              <zone h='93592' id='8' type-v2='layout-basic' w='98632' x='684' y='5441'>
+                <zone h='46796' id='3' name='Defect Density Trend Over Time' w='98632' x='684' y='5441'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='46796' id='5' name='Defect Density by Module' w='35330' x='63986' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='46796' id='6' name='Defect Density by Team' w='38667' x='25319' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='30834' id='11' name='Severity Breakdown' w='24635' x='684' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='15962' id='19' type-v2='text' w='24635' x='684' y='83071'>
+                  <formatted-text>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'>This pie chart illustrates the distribution of bugs by severity. A high proportion of </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Critical</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> or </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>High</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> severity bugs is far more concerning than a similar number of low-priority bugs. This breakdown helps us understand the true risk profile of our codebase and prioritize our remediation efforts accordingly.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='18380' id='18' type-v2='text' w='72797' x='26347' y='74486'>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>These bar charts provide a detailed breakdown of defect density across different modules and development teams. The </run>
+            <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Defect Density by Module</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book'> chart helps us pinpoint which parts of the codebase are most fragile and may be in urgent need of refactoring or architectural review. The </run>
+            <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Defect Density by Team</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book'> chart helps us identify teams that might be facing unique challenges, perhaps due to working on a new technology or a particularly complex feature. This data can inform targeted training programs or resource allocation.</run>
+          </formatted-text>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <layout-options>
+            <title>
+              <formatted-text>
+                <run bold='true' fontalignment='1' fontcolor='#000000' fontname='Benton Sans Book' underline='true'>Defect Density and Code Quality Analysis</run>
+              </formatted-text>
+            </title>
+          </layout-options>
+          <size maxheight='1350' minheight='1350' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='21' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98066' id='20' param='vert' type-v2='layout-flow' w='98632' x='684' y='967'>
+                <zone h='4474' id='17' type-v2='title' w='98632' x='684' y='967'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46796' id='3' is-fixed='true' name='Defect Density Trend Over Time' w='98632' x='684' y='5441'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='247' h='30834' id='11' is-fixed='true' name='Severity Breakdown' w='24635' x='684' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46796' id='6' is-fixed='true' name='Defect Density by Team' w='38667' x='25319' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46796' id='5' is-fixed='true' name='Defect Density by Module' w='35330' x='63986' y='52237'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='18380' id='18' type-v2='text' w='72797' x='26347' y='74486'>
+                  <formatted-text>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'>These bar charts provide a detailed breakdown of defect density across different modules and development teams. The </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Defect Density by Module</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> chart helps us pinpoint which parts of the codebase are most fragile and may be in urgent need of refactoring or architectural review. The </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Defect Density by Team</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> chart helps us identify teams that might be facing unique challenges, perhaps due to working on a new technology or a particularly complex feature. This data can inform targeted training programs or resource allocation.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='15962' id='19' type-v2='text' w='24635' x='684' y='83071'>
+                  <formatted-text>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'>This pie chart illustrates the distribution of bugs by severity. A high proportion of </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>Critical</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> or </run>
+                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book'>High</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book'> severity bugs is far more concerning than a similar number of low-priority bugs. This breakdown helps us understand the true risk profile of our codebase and prioritize our remediation efforts accordingly.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{2A4128B2-6785-4CC7-AFFD-A53DF075E355}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Defect Density Trend Over Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B6B4C51C-4F17-44C2-B503-8877AA94B38B}' />
+    </window>
+    <window class='worksheet' name='Defect Density by Module'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B5321936-7D6F-4757-8094-369035FF4104}' />
+    </window>
+    <window class='worksheet' name='Defect Density by Team'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1406AE42-15A6-4BE0-9237-0A32DC2B4FB1}' />
+    </window>
+    <window class='worksheet' name='Severity Breakdown'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0cotfqf1rqltty1a8sfx20zl285p].[none:severity:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{72CB0893-EE86-4E40-BF48-E6330B4084DD}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Defect Density and Code Quality Analysis'>
+      <viewpoints>
+        <viewpoint name='Defect Density Trend Over Time'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Defect Density by Module' />
+        <viewpoint name='Defect Density by Team' />
+        <viewpoint name='Severity Breakdown' />
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{47DF2BCD-4C0E-4E59-BAC4-F0DF52D3DF92}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Defect Density and Code Quality Analysis' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
